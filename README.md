@@ -3,7 +3,6 @@ Episode 10 - Meta Terminator
 
 Meta Programming in Ruby
 
-#sample code
 
 ```
 #class GoodTerminator
