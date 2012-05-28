@@ -1,7 +1,7 @@
 class GoodTerminator
-  include Terminatorable
-  likes_to_protect [:john_connor, :sarah_connor]
-  likes_to_destroy # defaults to an empty array, no args needed
+	include Terminatorable
+	likes_to_protect [:john_connor, :sarah_connor]
+	likes_to_destroy # defaults to an empty array, no args needed
 end
 
 class BadTerminator

@@ -3,10 +3,10 @@ module Terminatorable
 		['destroy', 'protect'].each do |action|
 			define_method "likes_to_#{action}" do |people=[]|
 				people.each do |person|
-					define_method "#{action}_#{person}!" do
-						@current_mission = "#{action}: #{person}"
-					end
+				define_method "#{action}_#{person}!" do
+					@current_mission = "#{action}: #{person}"
 				end
+			end
 			end
 		end
 	end
