@@ -1,11 +1,13 @@
-class GoodTerminator
-	include Terminatorable
-	likes_to_protect [:john_connor, :sarah_connor]
-	likes_to_destroy # defaults to an empty array, no args needed
-end
+class Terminator
+	attr_accessor :current_mission
 
-class BadTerminator
-	include Terminatorable
-	likes_to_protect # defaults to an empty array, no args needed
-	likes_to_destroy [:john_connor, :sarah_connor]
+	def initialize
+		@current_mission = ''
+	end
+
+	def method_missing sym
+		if sym =~ /^(protect|destroy)_(\w+_\w+)!/
+			@current_mission = "#{$1}: #{$2}"
+		end
+	end
 end
