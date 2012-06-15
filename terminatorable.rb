@@ -16,4 +16,8 @@ module Terminatorable
     attr_reader :current_mission
     klass.extend Terminatorable::ClassMethods
   end
+
+  if @current_mission == "protect" do
+      puts #{person} "was saved by Arnold"
+  end
 end
