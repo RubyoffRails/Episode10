@@ -9,6 +9,10 @@ module Terminatorable
           end
         end
       end
+
+      define_method :good? do
+        ['protect: john_connor','protect: sarah_connor'].include?(@current_mission)
+      end
     end
   end
 
