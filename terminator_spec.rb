@@ -48,4 +48,11 @@ describe BadTerminator do
     subject.destroy_john_connor!
     subject.should_not be_good
   end
+
+  describe '#protects?' do
+    it 'should not protect john_connor' do
+      subject.destroy_john_connor!
+      subject.protects?(:john_connor).should be_false
+    end
+  end
 end
