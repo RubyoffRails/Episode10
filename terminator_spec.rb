@@ -20,4 +20,25 @@ describe Terminator do
     subject.protect_sarah_connor!
     subject.current_mission.should eq("protect: sarah_connor")
   end
+
+  it "should know if the Terminator protects a person" do
+    subject.protect_sarah_connor!
+    subject.protects?("sarah_connor").should eq(true)
+  end
+
+  it "should know if a Terminator wants to destroy a person" do
+    subject.destroy_sarah_connor!
+    subject.protects?("sarah_connor").should_not eq(true)
+  end
+
+  it "should know if the Terminator is good" do
+    subject.protect_sarah_connor!
+    subject.good?.should be(true)
+  end
+
+  it "should know if the Terminator is not good" do
+    subject.destroy_sarah_connor!
+    subject.good?.should_not be(true)
+  end
+
 end

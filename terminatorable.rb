@@ -10,6 +10,16 @@ module Terminatorable
         end
       end
     end
+
+    def good
+      define_method :good? do
+        if !current_mission.nil?
+          @current_mission.include?("protect")
+        else
+          true
+        end
+      end
+    end
   end
 
   def self.included(klass)
