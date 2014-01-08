@@ -12,7 +12,7 @@ Meta Programming in Ruby
 #
 #class BadTerminator
 #  likes_to_protect []
-#  likes_to_destroy [:john_connor, :sarah_connor]
+###  likes_to_destroy [:john_connor, :sarah_connor]
 #end
 ```
 
