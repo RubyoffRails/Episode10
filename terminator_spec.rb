@@ -1,8 +1,7 @@
 
 require 'rspec'
+#require 'rake'
 require "./terminator"
-
-
 
 describe Terminator do
   it "should destroy_john_connor" do
@@ -24,4 +23,27 @@ describe Terminator do
     subject.protect_sarah_connor!
     subject.current_mission.should eq("protect: sarah_connor")
   end
+
+  it "should know if the Terminator protects a person" do
+  subject.protect_sarah_connor!
+  subject.protect?("sarah_connor").should eq(true)
+  end
+
+  it "should know if the Terminator destroys a person" do
+    subject.destroy_sarah_connor!
+    subject.protect?("sarah_connor").should eq(false)
+  end
+
+  it "should know if the Terminator is good" do
+    subject.protect_sarah_connor!
+    subject.good?.should eq(true)
+  end
+
+  it "should know if the Terminator is bad" do
+    subject.destroy_sarah_connor!
+    subject.good?.should eq(false)
+  end
 end
+  
+
+
