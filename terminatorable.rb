@@ -9,8 +9,9 @@ module Terminatorable
 
   module ClassMethods
 
-    def likes_to_protect(people=[]) 
-      people.each do |person|
+    def likes_to_protect(people={}) 
+      people.first.fetch(:protect).each do |person|
+      #people.each do |person|
         define_method "protect_#{person}!" do 
           @current_mission = "protect: #{person}"
         end  
@@ -18,7 +19,7 @@ module Terminatorable
     end
 
     def likes_to_destroy(people=[]) 
-      people.each do |person|
+      people.first.fetch(:destroy).each do |person|
         define_method "destroy_#{person}!" do 
           @current_mission = "destroy: #{person}"
         end  
@@ -27,11 +28,8 @@ module Terminatorable
 
   def good
     define_method :good? do
-      if @current_mission.include?("protect")
-        true
-    else
-        false
-      end
+       @current_mission.include?("protect")
+    
     end
   end
 end
