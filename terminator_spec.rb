@@ -31,4 +31,15 @@ describe Terminator do
       subject.protects?(:sarah_connor).should be_false
     end
   end
+
+  describe "#good?" do
+    it "should return true if the terminator is good" do
+      subject.protect_sarah_connor!
+      subject.good?.should be_true
+    end
+    it "should return false if the terminator is bad" do
+      subject.destroy_john_connor!
+      subject.good?.should be_false
+    end
+  end
 end
