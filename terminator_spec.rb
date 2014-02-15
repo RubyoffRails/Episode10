@@ -20,4 +20,15 @@ describe Terminator do
     subject.protect_sarah_connor!
     subject.current_mission.should eq("protect: sarah_connor")
   end
+
+  describe "#protects?" do
+    it "should return true when protecting Sarah Connor" do
+      subject.protect_sarah_connor!
+      subject.protects?(:sarah_connor).should be_true
+    end
+    it "should return false when destroying Sarah Connor" do
+      subject.destroy_sarah_connor!
+      subject.protects?(:sarah_connor).should be_false
+    end
+  end
 end

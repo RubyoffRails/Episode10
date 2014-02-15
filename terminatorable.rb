@@ -6,6 +6,7 @@ module Terminatorable
         people.each do |person|
           define_method "#{mission_type}_#{person}!" do
             @current_mission = "#{mission_type}: #{person}"
+            @protected_person = person if mission_type == "protect"
           end
         end
       end
@@ -15,5 +16,8 @@ module Terminatorable
   def self.included(klass)
     attr_reader :current_mission
     klass.extend Terminatorable::ClassMethods
+    def protects?(person)
+      @protected_person == person
+    end
   end
 end
