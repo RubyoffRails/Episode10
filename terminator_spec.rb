@@ -30,6 +30,11 @@ describe Terminator do
       subject.destroy_sarah_connor!
       subject.protects?(:sarah_connor).should be_false
     end
+    it "should protect Sarah and John Connor at the same time" do
+      subject.protect_sarah_connor!
+      subject.protect_john_connor!
+      subject.protects?(:sarah_connor).should be_true
+    end
   end
 
   describe "#good?" do
